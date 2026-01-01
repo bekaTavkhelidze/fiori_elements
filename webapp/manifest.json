@@ -27,9 +27,7 @@
         "uri": "/root/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "annotation"
-          ],
+          "annotations": ["annotation"],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "4.0"
         }
@@ -130,6 +128,20 @@
                   "tableSettings": {
                     "type": "ResponsiveTable"
                   }
+                },
+                "@com.sap.vocabularies.UI.v1.SelectionFields": {
+                  "filterFields": {
+                    "CustomFIlter": {
+                      "label": "Floor Area above 2000",
+                      "property": "FloorArea",
+                      "template": "fiorielements.ext.fragment.ListReport",
+                      "required": false,
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "FloorArea"
+                      }
+                    }
+                  }
                 }
               },
               "initialLoad": "Enabled"
@@ -179,9 +191,7 @@
                     },
                     "quickVariantSelection": {
                       "hideTableTitle": false,
-                      "paths": [
-                        {}
-                      ]
+                      "paths": [{}]
                     }
                   },
                   "columns": {
@@ -192,6 +202,15 @@
                         "placement": "After"
                       },
                       "template": "fiorielements.ext.fragment.CustomColumn1"
+                    }
+                  },
+                  "actions": {
+                    "Function_Import": {
+                      "press": "fiorielements.ext.controller.Action.callFunction",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Function_Import"
                     }
                   }
                 }
