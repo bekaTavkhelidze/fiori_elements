@@ -42,6 +42,11 @@
                 <Annotation Term="UI.Facets">
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Store"/>
+                            <PropertyValue Property="ID" String="Store"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Store"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="Label" String="Products"/>
                             <PropertyValue Property="ID" String="Products"/>
                             <PropertyValue Property="Target" AnnotationPath="Products/@UI.LineItem#Products"/>
@@ -91,6 +96,54 @@
                             <PropertyValue Property="Label" String="mutate"/>
                         </Record>
                     </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Store">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Email"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Address"/>
+                                    <PropertyValue Property="Label" String="Address"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ID"/>
+                                    <PropertyValue Property="Label" String="ID"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Name"/>
+                                    <PropertyValue Property="Label" String="Name"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="FloorArea">
+                    <Record>
+                        <PropertyValue Property="Value" Path="FloorArea"/>
+                        <PropertyValue Property="TargetValue" Path="FloorArea"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Chart" Qualifier="FloorArea">
+                    <Record>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>FloorArea</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#FloorArea"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="Measure" PropertyPath="FloorArea"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
                 </Annotation>
             </Annotations>
             <Annotations Target="StoreService.Products">
@@ -258,6 +311,31 @@
                     </Record>
                 </Annotation>
                 <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="StoreService.ProductComments">
+                <Annotation Term="UI.LineItem" Qualifier="tableMacro">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="UI.LineItem" Qualifier="tableMacro1">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Author"/>
+                            <PropertyValue Property="Label" String="Author"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Message"/>
+                            <PropertyValue Property="Label" String="Message"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Posted"/>
+                            <PropertyValue Property="Label" String="Posted"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Rating"/>
+                            <PropertyValue Property="Label" String="Rating"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
             </Annotations>
         </Schema>
     </edmx:DataServices>

@@ -57,7 +57,8 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.fe.templates": {}
+        "sap.fe.templates": {},
+        "sap.fe.macros": {}
       }
     },
     "contentDensities": {
@@ -127,6 +128,25 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable"
+                  },
+                  "columns": {
+                    "CustomColumnListReport": {
+                      "header": "Custom Value",
+                      "position": {
+                        "anchor": "DataField::Email",
+                        "placement": "After"
+                      },
+                      "template": "fiorielements.ext.fragment.CustomColumnListReport"
+                    }
+                  },
+                  "actions": {
+                    "Function_Import": {
+                      "press": "fiorielements.ext.controller.Action.OnCallAction",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Custom Action"
+                    }
                   }
                 },
                 "@com.sap.vocabularies.UI.v1.SelectionFields": {
@@ -167,7 +187,34 @@
               "content": {
                 "header": {
                   "anchorBarVisible": true,
-                  "visible": true
+                  "visible": true,
+                  "facets": {
+                    "CustomHeaderFacet": {
+                      "template": "fiorielements.ext.fragment.CustomHeaderFacet",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Name"
+                      },
+                      "title": "Custom facet",
+                      "stashed": false,
+                      "requestGroupId": "Heroes",
+                      "flexSettings": {
+                        "designtime": "Default"
+                      }
+                    }
+                  }
+                },
+                "body": {
+                  "sections": {
+                    "CustomSectionOP": {
+                      "template": "fiorielements.ext.fragment.CustomSectionOP",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Products"
+                      },
+                      "title": "Custom Section _ Macros Table"
+                    }
+                  }
                 }
               },
               "showRelatedApps": false,
@@ -194,23 +241,35 @@
                       "paths": [{}]
                     }
                   },
-                  "columns": {
-                    "CustomColumn1": {
-                      "header": "test value",
-                      "position": {
-                        "anchor": "DataField::Name",
-                        "placement": "After"
-                      },
-                      "template": "fiorielements.ext.fragment.CustomColumn1"
-                    }
-                  },
                   "actions": {
                     "Function_Import": {
-                      "press": "fiorielements.ext.controller.Action.callFunction",
+                      "press": "fiorielements.ext.controller.Action.OnCallAction",
                       "visible": true,
                       "enabled": true,
                       "requiresSelection": false,
-                      "text": "Function_Import"
+                      "text": "Call Action"
+                    }
+                  },
+                  "columns": {
+                    "CustomColumnOP": {
+                      "header": "Value",
+                      "position": {
+                        "anchor": "DataField::Name",
+                        "placement": "Before"
+                      },
+                      "template": "fiorielements.ext.fragment.CustomColumnOP"
+                    }
+                  }
+                },
+                "@com.sap.vocabularies.UI.v1.FieldGroup#Store": {
+                  "fields": {
+                    "CustomFieldOP": {
+                      "template": "fiorielements.ext.fragment.CustomFieldOP",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "DataField::Name"
+                      },
+                      "label": "Custom Field"
                     }
                   }
                 }
@@ -226,17 +285,6 @@
             "settings": {
               "contextPath": "/Stores/Products",
               "navigation": {},
-              "controlConfiguration": {
-                "@com.sap.vocabularies.UI.v1.HeaderFacets": {
-                  "facets": {
-                    "MadeIn": {
-                      "flexSettings": {
-                        "designtime": "Default"
-                      }
-                    }
-                  }
-                }
-              },
               "editableHeaderContent": true,
               "content": {
                 "header": {
