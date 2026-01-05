@@ -27,9 +27,7 @@
         "uri": "/root/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "annotation"
-          ],
+          "annotations": ["annotation"],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "4.0"
         }
@@ -59,7 +57,8 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.fe.templates": {}
+        "sap.fe.templates": {},
+        "sap.fe.macros": {}
       }
     },
     "contentDensities": {
@@ -129,6 +128,39 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable"
+                  },
+                  "columns": {
+                    "CustomColumnListReport": {
+                      "header": "Custom Value",
+                      "position": {
+                        "anchor": "DataField::Email",
+                        "placement": "After"
+                      },
+                      "template": "fiorielements.ext.fragment.CustomColumnListReport"
+                    }
+                  },
+                  "actions": {
+                    "Function_Import": {
+                      "press": "fiorielements.ext.controller.Action.OnCallAction",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Custom Action"
+                    }
+                  }
+                },
+                "@com.sap.vocabularies.UI.v1.SelectionFields": {
+                  "filterFields": {
+                    "CustomFIlter": {
+                      "label": "Floor Area above 2000",
+                      "property": "FloorArea",
+                      "template": "fiorielements.ext.fragment.ListReport",
+                      "required": false,
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "FloorArea"
+                      }
+                    }
                   }
                 }
               },
@@ -149,6 +181,98 @@
                     "route": "ProductsObjectPage"
                   }
                 }
+              },
+              "variantManagement": "Control",
+              "editableHeaderContent": true,
+              "content": {
+                "header": {
+                  "anchorBarVisible": true,
+                  "visible": true,
+                  "facets": {
+                    "CustomHeaderFacet": {
+                      "template": "fiorielements.ext.fragment.CustomHeaderFacet",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Name"
+                      },
+                      "title": "Custom facet",
+                      "stashed": false,
+                      "requestGroupId": "Heroes",
+                      "flexSettings": {
+                        "designtime": "Default"
+                      }
+                    }
+                  }
+                },
+                "body": {
+                  "sections": {
+                    "CustomSectionOP": {
+                      "template": "fiorielements.ext.fragment.CustomSectionOP",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Products"
+                      },
+                      "title": "Custom Section _ Macros Table"
+                    }
+                  }
+                }
+              },
+              "showRelatedApps": false,
+              "controlConfiguration": {
+                "Products/@com.sap.vocabularies.UI.v1.LineItem#Products": {
+                  "tableSettings": {
+                    "enableFullScreen": true,
+                    "enableMassEdit": {
+                      "ignoredFields": "Status,MadeIn,Name,Price_amount"
+                    },
+                    "selectionLimit": 0,
+                    "selectAll": true,
+                    "selectionMode": "Single",
+                    "type": "ResponsiveTable",
+                    "creationMode": {
+                      "name": "Inline"
+                    },
+                    "personalization": {
+                      "filter": true,
+                      "sort": false
+                    },
+                    "quickVariantSelection": {
+                      "hideTableTitle": false,
+                      "paths": [{}]
+                    }
+                  },
+                  "actions": {
+                    "Function_Import": {
+                      "press": "fiorielements.ext.controller.Action.OnCallAction",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Call Action"
+                    }
+                  },
+                  "columns": {
+                    "CustomColumnOP": {
+                      "header": "Value",
+                      "position": {
+                        "anchor": "DataField::Name",
+                        "placement": "Before"
+                      },
+                      "template": "fiorielements.ext.fragment.CustomColumnOP"
+                    }
+                  }
+                },
+                "@com.sap.vocabularies.UI.v1.FieldGroup#Store": {
+                  "fields": {
+                    "CustomFieldOP": {
+                      "template": "fiorielements.ext.fragment.CustomFieldOP",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "DataField::Name"
+                      },
+                      "label": "Custom Field"
+                    }
+                  }
+                }
               }
             }
           }
@@ -160,9 +284,24 @@
           "options": {
             "settings": {
               "contextPath": "/Stores/Products",
-              "navigation": {}
+              "navigation": {},
+              "editableHeaderContent": true,
+              "content": {
+                "header": {
+                  "visible": true,
+                  "anchorBarVisible": false
+                }
+              },
+              "sectionLayout": "Page"
             }
           }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.viewExtensions": {
+          "sap.suite.ui.generic.template.ListReport.view.ListReport": {}
         }
       }
     }

@@ -1,0 +1,4 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <CheckBox id="idLargeAreaCheckBox" selected="{path: 'filterValues>', type: 'sap.fe.macros.filter.type.Value', formatOptions: { operator: 'fiorielements.ext.fragment.ListReport.filterItems' }}" core:require="{handler: 'fiorielements/ext/fragment/ListReport'}" />
+</core:FragmentDefinition>
