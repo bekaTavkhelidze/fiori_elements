@@ -131,7 +131,7 @@
                   },
                   "columns": {
                     "CustomColumnListReport": {
-                      "header": "Custom Value",
+                      "header": "{i18n>customValue}",
                       "position": {
                         "anchor": "DataField::Email",
                         "placement": "After"
@@ -152,7 +152,7 @@
                 "@com.sap.vocabularies.UI.v1.SelectionFields": {
                   "filterFields": {
                     "CustomFIlter": {
-                      "label": "Floor Area above 2000",
+                      "label": "{i18n>floorAreaAbove2000}",
                       "property": "FloorArea",
                       "template": "fiorielements.ext.fragment.ListReport",
                       "required": false,
@@ -247,7 +247,7 @@
                       "visible": true,
                       "enabled": true,
                       "requiresSelection": false,
-                      "text": "Call Action"
+                      "text": "{i18n>callTheAction}"
                     }
                   },
                   "columns": {
@@ -257,7 +257,8 @@
                         "anchor": "DataField::Name",
                         "placement": "Before"
                       },
-                      "template": "fiorielements.ext.fragment.CustomColumnOP"
+                      "template": "fiorielements.ext.fragment.CustomColumnOP",
+                      "availability": "Default"
                     }
                   }
                 },
@@ -269,7 +270,7 @@
                         "placement": "After",
                         "anchor": "DataField::Name"
                       },
-                      "label": "Custom Field"
+                      "label": "{i18n>customField}"
                     }
                   }
                 }

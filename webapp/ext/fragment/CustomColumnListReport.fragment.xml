@@ -1,4 +1,4 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core"
 	xmlns="sap.m">
-	<Text text="Custom Column" id="idCustomColumnText"/>
+	<Text text="{i18n>customColumnLR}" id="idCustomColumnText"/>
 </core:FragmentDefinition>

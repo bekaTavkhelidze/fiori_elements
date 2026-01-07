@@ -1,3 +1,4 @@
-<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
-	<Text text="CustomFieldOP" />
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Text text="{i18n>customFieldOP}" id="idCustomFieldOPText"/>
 </core:FragmentDefinition>

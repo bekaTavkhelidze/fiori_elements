@@ -9,15 +9,26 @@ sap.ui.define(['sap/m/MessageToast'], function (MessageToast) {
      * @param aSelectedContexts the selected contexts of the table rows.
      */
 
-    OnCallAction: function () {
+    OnCallAction: function (oEvent) {
       const oModel = this.getModel();
-
+      console.log('first');
+      const oContext = this.base.getView().getBindingContext();
+      console.log(oContext);
       const oAction = oModel.bindContext('/mutate(...)');
-
       oAction.setParameter('param', 'param');
       oAction
         .execute()
-        .then(function () {
+        .then(() => {
+          oContext
+            .requestSideEffects([
+              {
+                targetProperties: ['Name'],
+              },
+            ])
+            .then(() => {
+              console.log('noce');
+            });
+
           sap.m.MessageToast.show('Action executed successfully!');
         })
         .catch(function (oError) {
