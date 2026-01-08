@@ -84,17 +84,8 @@
                         <PropertyPath>PhoneNumber</PropertyPath>
                     </Collection>
                 </Annotation>
-                <Annotation Term="Common.SideEffects" Qualifier="sideEffectAction">
-                    <Record Type="Common.SideEffectsType">
-                        <PropertyValue Property="TargetProperties">
-                            <Collection>
-                                <String>Email</String>
-                            </Collection>
-                        </PropertyValue>
 
-                        <PropertyValue Property="TriggerAction" String="StoreService.EntityContainer/mutate"/>
-                    </Record>
-                </Annotation>
+
 
                 <Annotation Term="UI.Identification">
                     <Collection>
@@ -157,8 +148,32 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
+                <Annotation Term="Common.SideEffects" Qualifier="sideEffectAction">
+                    <Record>
+                        <!-- The Action that triggers the refresh -->
+                        <PropertyValue Property="TriggerAction" String="StoreService.EntityContainer/mutate"/>
+
+                        <!-- The specific field(s) you want the UI to reload from the server -->
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>Products/*</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
             </Annotations>
             <Annotations Target="StoreService.Products">
+                <Annotation Term="Common.SideEffects" Qualifier="sideEffectAction1">
+                    <Record>
+
+                        <PropertyValue Property="TriggerAction" String="StoreService.EntityContainer/mutate"/>
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>Name</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
                 <Annotation Term="UI.DataPoint" Qualifier="MadeIn">
                     <Record Type="UI.DataPointType">
                         <PropertyValue Property="Value" Path="MadeIn"/>

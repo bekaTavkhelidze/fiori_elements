@@ -1,39 +1,30 @@
-sap.ui.define(['sap/m/MessageToast'], function (MessageToast) {
-  'use strict';
+sap.ui.define(
+  ['sap/m/MessageToast', 'sap/m/MessageBox'],
+  function (MessageToast, MessageBox) {
+    'use strict';
 
-  return {
-    /**
-     * Generated event handler.
-     *
-     * @param oContext the context of the page on which the event was fired. `undefined` for list report page.
-     * @param aSelectedContexts the selected contexts of the table rows.
-     */
+    return {
+      OnCallAction: function (oBindingContext, aSelectedContexts) {
+        const oModel = this.getModel();
 
-    OnCallAction: function (oEvent) {
-      const oModel = this.getModel();
-      console.log('first');
-      const oContext = this.base.getView().getBindingContext();
-      console.log(oContext);
-      const oAction = oModel.bindContext('/mutate(...)');
-      oAction.setParameter('param', 'param');
-      oAction
-        .execute()
-        .then(() => {
-          oContext
-            .requestSideEffects([
+        console.log(this.base.getView());
+        const oAction = oModel.bindContext('/mutate(...)');
+        oAction.setParameter('param', 'param');
+
+        oAction
+          .execute()
+          .then(() => {
+            oCurrentContext.requestSideEffects([
               {
-                targetProperties: ['Name'],
+                targetProperties: ['Email'],
               },
-            ])
-            .then(() => {
-              console.log('noce');
-            });
-
-          sap.m.MessageToast.show('Action executed successfully!');
-        })
-        .catch(function (oError) {
-          sap.m.MessageBox.error(oError.message);
-        });
-    },
-  };
-});
+            ]);
+            MessageToast.show('Action executed successfully!');
+          })
+          .catch((oError) => {
+            MessageBox.error(oError.message);
+          });
+      },
+    };
+  }
+);

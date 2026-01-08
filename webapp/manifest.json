@@ -145,7 +145,7 @@
                       "visible": true,
                       "enabled": true,
                       "requiresSelection": false,
-                      "text": "Custom Action"
+                      "text": "{i18n>callTheAction}"
                     }
                   }
                 },
