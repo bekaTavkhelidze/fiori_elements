@@ -39,6 +39,7 @@
                         </Record>
                     </Collection>
                 </Annotation>
+
                 <Annotation Term="UI.Facets">
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
@@ -59,24 +60,20 @@
                         <PropertyValue Property="Title" String="{@i18n>email}"/>
                     </Record>
                 </Annotation>
+
                 <Annotation Term="UI.DataPoint" Qualifier="Name">
                     <Record Type="UI.DataPointType">
                         <PropertyValue Property="Value" Path="Name"/>
                         <PropertyValue Property="Title" String="{@i18n>name}"/>
                     </Record>
                 </Annotation>
-                <Annotation Term="UI.HeaderFacets">
-                    <Collection>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="ID" String="Email"/>
-                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#Email"/>
-                        </Record>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="ID" String="Name"/>
-                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#Name"/>
-                        </Record>
-                    </Collection>
+                <Annotation Term="UI.DataPoint" Qualifier="PhoneNumber">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Value" Path="Name"/>
+                        <PropertyValue Property="Title" String="{@i18n>name}"/>
+                    </Record>
                 </Annotation>
+
                 <Annotation Term="UI.SelectionFields">
                     <Collection>
                         <PropertyPath>Email</PropertyPath>
@@ -84,8 +81,6 @@
                         <PropertyPath>PhoneNumber</PropertyPath>
                     </Collection>
                 </Annotation>
-
-
 
                 <Annotation Term="UI.Identification">
                     <Collection>
@@ -99,6 +94,7 @@
                         </Record>
                     </Collection>
                 </Annotation>
+
                 <Annotation Term="UI.FieldGroup" Qualifier="Store">
                     <Record Type="UI.FieldGroupType">
                         <PropertyValue Property="Data">
@@ -119,10 +115,19 @@
                                     <PropertyValue Property="Value" Path="Name"/>
                                     <PropertyValue Property="Label" String="{@i18n>name}"/>
                                 </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="FloorArea"/>
+                                    <PropertyValue Property="Label" String="{@i18n>floorArea}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="PhoneNumber"/>
+                                    <PropertyValue Property="Label" String="{@i18n>phoneNumber}"/>
+                                </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
                 </Annotation>
+
                 <Annotation Term="UI.DataPoint" Qualifier="FloorArea">
                     <Record>
                         <PropertyValue Property="Value" Path="FloorArea"/>
@@ -150,22 +155,19 @@
                 </Annotation>
                 <Annotation Term="Common.SideEffects" Qualifier="sideEffectAction">
                     <Record>
-                        <!-- The Action that triggers the refresh -->
                         <PropertyValue Property="TriggerAction" String="StoreService.EntityContainer/mutate"/>
-
-                        <!-- The specific field(s) you want the UI to reload from the server -->
                         <PropertyValue Property="TargetProperties">
                             <Collection>
-                                <String>Products/*</String>
+                                <String>Products/Name</String>
                             </Collection>
                         </PropertyValue>
                     </Record>
                 </Annotation>
             </Annotations>
             <Annotations Target="StoreService.Products">
-                <Annotation Term="Common.SideEffects" Qualifier="sideEffectAction1">
-                    <Record>
 
+                <!-- <Annotation Term="Common.SideEffects" Qualifier="sideEffectAction1">
+                    <Record>
                         <PropertyValue Property="TriggerAction" String="StoreService.EntityContainer/mutate"/>
                         <PropertyValue Property="TargetProperties">
                             <Collection>
@@ -173,7 +175,24 @@
                             </Collection>
                         </PropertyValue>
                     </Record>
+                </Annotation> -->
+
+                <Annotation Term="Common.SideEffects" Qualifier="productEditSideEffect">
+                    <Record>
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>Name</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>Rating</String>
+                                <String>Photo</String>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
                 </Annotation>
+
                 <Annotation Term="UI.DataPoint" Qualifier="MadeIn">
                     <Record Type="UI.DataPointType">
                         <PropertyValue Property="Value" Path="MadeIn"/>

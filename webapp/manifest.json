@@ -27,7 +27,9 @@
         "uri": "/root/",
         "type": "OData",
         "settings": {
-          "annotations": ["annotation"],
+          "annotations": [
+            "annotation"
+          ],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "4.0"
         }
@@ -222,15 +224,13 @@
                 "Products/@com.sap.vocabularies.UI.v1.LineItem#Products": {
                   "tableSettings": {
                     "enableFullScreen": true,
-                    "enableMassEdit": {
-                      "ignoredFields": "Status,MadeIn,Name,Price_amount"
-                    },
+                    "enableMassEdit": false,
                     "selectionLimit": 0,
                     "selectAll": true,
                     "selectionMode": "Single",
                     "type": "ResponsiveTable",
                     "creationMode": {
-                      "name": "Inline"
+                      "name": "NewPage"
                     },
                     "personalization": {
                       "filter": true,
@@ -238,7 +238,9 @@
                     },
                     "quickVariantSelection": {
                       "hideTableTitle": false,
-                      "paths": [{}]
+                      "paths": [
+                        {}
+                      ]
                     }
                   },
                   "actions": {
@@ -248,17 +250,6 @@
                       "enabled": true,
                       "requiresSelection": false,
                       "text": "{i18n>callTheAction}"
-                    }
-                  },
-                  "columns": {
-                    "CustomColumnOP": {
-                      "header": "Value",
-                      "position": {
-                        "anchor": "DataField::Name",
-                        "placement": "Before"
-                      },
-                      "template": "fiorielements.ext.fragment.CustomColumnOP",
-                      "availability": "Default"
                     }
                   }
                 },
