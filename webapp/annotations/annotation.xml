@@ -153,35 +153,38 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
-                <Annotation Term="Common.SideEffects" Qualifier="sideEffectAction">
+
+
+            </Annotations>
+            <Annotations Target="StoreService.EntityContainer">
+                <Annotation Term="Common.SideEffects" Qualifier="sideEffectAction1">
                     <Record>
-                        <PropertyValue Property="TriggerAction" String="StoreService.EntityContainer/mutate"/>
+                        <PropertyValue Property="SourceEvents">
+                            <Collection>
+                                <!-- Absolute path for Unbound Actions in OData V4 -->
+                                <NavigationPropertyPath>mutate</NavigationPropertyPath>
+                            </Collection>
+                        </PropertyValue>
                         <PropertyValue Property="TargetProperties">
                             <Collection>
-                                <String>Products/Name</String>
+                                <!-- Specify the path to refresh relative to the UI context -->
+                                <PropertyPath>Products/Photo</PropertyPath>
                             </Collection>
                         </PropertyValue>
                     </Record>
                 </Annotation>
             </Annotations>
+
             <Annotations Target="StoreService.Products">
 
-                <!-- <Annotation Term="Common.SideEffects" Qualifier="sideEffectAction1">
-                    <Record>
-                        <PropertyValue Property="TriggerAction" String="StoreService.EntityContainer/mutate"/>
-                        <PropertyValue Property="TargetProperties">
-                            <Collection>
-                                <String>Name</String>
-                            </Collection>
-                        </PropertyValue>
-                    </Record>
-                </Annotation> -->
 
-                <Annotation Term="Common.SideEffects" Qualifier="productEditSideEffect">
+
+
+                <!-- <Annotation Term="Common.SideEffects" Qualifier="productEditSideEffect">
                     <Record>
-                        <PropertyValue Property="SourceProperties">
+                        <PropertyValue Property="SourceEvents">
                             <Collection>
-                                <PropertyPath>Name</PropertyPath>
+                                <String>StoreService.mutate</String>
                             </Collection>
                         </PropertyValue>
                         <PropertyValue Property="TargetProperties">
@@ -191,7 +194,7 @@
                             </Collection>
                         </PropertyValue>
                     </Record>
-                </Annotation>
+                </Annotation> -->
 
                 <Annotation Term="UI.DataPoint" Qualifier="MadeIn">
                     <Record Type="UI.DataPointType">
@@ -309,6 +312,7 @@
                     <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextLast"/>
                 </Annotation>
             </Annotations>
+
             <Annotations Target="StoreService.ProductComments/Author">
                 <Annotation Term="Common.Text" Path="Message"/>
             </Annotations>
