@@ -27,9 +27,7 @@
         "uri": "/root/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "annotation"
-          ],
+          "annotations": ["annotation"],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "4.0"
         }
@@ -37,9 +35,9 @@
     },
     "crossNavigation": {
       "inbounds": {
-        "intent1": {
-          "semanticObject": "fiorielements",
-          "action": "display",
+        "fiorielementsV2-show": {
+          "semanticObject": "fiorielementsV4",
+          "action": "show",
           "title": "firori elements v4",
           "signature": {
             "parameters": {},
@@ -251,9 +249,7 @@
                     },
                     "quickVariantSelection": {
                       "hideTableTitle": false,
-                      "paths": [
-                        {}
-                      ]
+                      "paths": [{}]
                     }
                   },
                   "actions": {
