@@ -27,9 +27,7 @@
         "uri": "/root/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "annotation"
-          ],
+          "annotations": ["annotation"],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "4.0"
         }
@@ -37,10 +35,10 @@
     },
     "crossNavigation": {
       "inbounds": {
-        "intent1": {
-          "semanticObject": "fiorielements",
-          "action": "display",
-          "title": "firori elements v4",
+        "localfiorielementv4-display": {
+          "semanticObject": "localfiorielementv4",
+          "action": "show",
+          "title": "{{localfiorielementv4-display.flpTitle}}",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
@@ -251,9 +249,7 @@
                     },
                     "quickVariantSelection": {
                       "hideTableTitle": false,
-                      "paths": [
-                        {}
-                      ]
+                      "paths": [{}]
                     }
                   },
                   "actions": {
@@ -314,9 +310,5 @@
   "sap.fiori": {
     "registrationIds": [],
     "archeType": "transactional"
-  },
-  "sap.cloud": {
-    "public": true,
-    "service": "fiorielements"
   }
 }

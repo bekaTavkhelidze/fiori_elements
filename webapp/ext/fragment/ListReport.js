@@ -5,7 +5,6 @@ sap.ui.define(
     return {
       filterItems: function (sValue) {
         const oContext = this.base().getView();
-        console.log(oContext);
 
         if (!sValue) {
           return null;

@@ -176,26 +176,6 @@
             </Annotations>
 
             <Annotations Target="StoreService.Products">
-
-
-
-
-                <!-- <Annotation Term="Common.SideEffects" Qualifier="productEditSideEffect">
-                    <Record>
-                        <PropertyValue Property="SourceEvents">
-                            <Collection>
-                                <String>StoreService.mutate</String>
-                            </Collection>
-                        </PropertyValue>
-                        <PropertyValue Property="TargetProperties">
-                            <Collection>
-                                <String>Rating</String>
-                                <String>Photo</String>
-                            </Collection>
-                        </PropertyValue>
-                    </Record>
-                </Annotation> -->
-
                 <Annotation Term="UI.DataPoint" Qualifier="MadeIn">
                     <Record Type="UI.DataPointType">
                         <PropertyValue Property="Value" Path="MadeIn"/>
