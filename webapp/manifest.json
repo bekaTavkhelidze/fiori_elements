@@ -35,10 +35,10 @@
     },
     "crossNavigation": {
       "inbounds": {
-        "fiorielementsV4-show": {
-          "semanticObject": "fiorielementsV4",
-          "action": "show",
-          "title": "firori elements v4 show",
+        "intent1": {
+          "semanticObject": "fiorielements",
+          "action": "display",
+          "title": "fiori elements v4 display",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
